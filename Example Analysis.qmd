@@ -30,6 +30,7 @@ See data dictionaries [here](https://github.com/rfordatascience/tidytuesday/tree
 Download data:
 ```{r}
 #| label: "setup"
+#| output: false
 # Load libraries
 library(dplyr)
 library(ggplot2)
@@ -42,7 +43,7 @@ library(here)
 
 ```
 ::: callout-tip
-Avoid API limit for knitting the document using the code below:
+Avoid API limit for knitting the document using the code below.
 :::
 ```{r}
 # Tests if a directory named "data" exists locally

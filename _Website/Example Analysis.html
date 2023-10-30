@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -108,7 +108,8 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -133,7 +134,7 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./Homepage.html" rel="" target="">
+    <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -211,30 +212,14 @@ Note
 <p>Download data:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>here() starts at /Users/helenguo/Documents/Computing/Term 2/Helen Guo Website</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in data</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># tuesdata &lt;- tidytuesdayR::tt_load("2019-03-05")</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># earnings_female &lt;- tuesdata$earnings_female</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># employed_gender &lt;- tuesdata$employed_gender</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in data</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># tuesdata &lt;- tidytuesdayR::tt_load("2019-03-05")</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># earnings_female &lt;- tuesdata$earnings_female</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># employed_gender &lt;- tuesdata$employed_gender</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -246,55 +231,55 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Avoid API limit for knitting the document using the code below:</p>
+<p>Avoid API limit for knitting the document using the code below.</p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tests if a directory named "data" exists locally</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># if (!dir.exists(here("data"))) {</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#     dir.create(here("data"))}</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Saves data only once (not each time you knit a R Markdown)</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># if (!file.exists(here("data", "earnings_female.RDS"))) {</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span><span class="al">###</span><span class="co"> Save the file to RDS objects</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#     saveRDS(earnings_female, file = here("data", "earnings_female.RDS"))</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   saveRDS(employed_gender, file = here("data", "employed_gender.RDS"))}</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># if (!file.exists(here("data", "employed_gender.RDS"))) {</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span><span class="al">###</span><span class="co"> Save the file to RDS objects</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">#    saveRDS(employed_gender, file = here("data", "employed_gender.RDS"))}</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the .RDS dataset locally from our computing environment</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>earnings_female <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"earnings_female.RDS"</span>))</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>employed_gender <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"employed_gender.RDS"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tests if a directory named "data" exists locally</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># if (!dir.exists(here("data"))) {</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#     dir.create(here("data"))}</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Saves data only once (not each time you knit a R Markdown)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># if (!file.exists(here("data", "earnings_female.RDS"))) {</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span><span class="al">###</span><span class="co"> Save the file to RDS objects</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#     saveRDS(earnings_female, file = here("data", "earnings_female.RDS"))</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   saveRDS(employed_gender, file = here("data", "employed_gender.RDS"))}</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># if (!file.exists(here("data", "employed_gender.RDS"))) {</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span><span class="al">###</span><span class="co"> Save the file to RDS objects</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#    saveRDS(employed_gender, file = here("data", "employed_gender.RDS"))}</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the .RDS dataset locally from our computing environment</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>earnings_female <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"earnings_female.RDS"</span>))</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>employed_gender <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"employed_gender.RDS"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Clean/wrangle data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename 'percent' column to 'percent_female' and 'group' to 'age_group' and 'Year' to 'year' for clarity and consistency in earnings_female.csv</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>earnings_female <span class="ot">&lt;-</span> earnings_female <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">percent_female =</span> percent, <span class="at">age_group =</span> group, <span class="at">year=</span>Year)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Relabel 'Total, 16 years and older' to 'Total' in 'age_group' column. Remove anytime 'years' appears in age_group column and relabel '65 years and older' to '65+'</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>earnings_female <span class="ot">&lt;-</span> earnings_female <span class="sc">%&gt;%</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">gsub</span>(<span class="st">"Total, 16 years and older"</span>, <span class="st">"Total"</span>, age_group)) <span class="sc">%&gt;%</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">gsub</span>(<span class="st">" years"</span>, <span class="st">""</span>, age_group)) <span class="sc">%&gt;%</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">gsub</span>(<span class="st">"65 and older"</span>, <span class="st">"65+"</span>, age_group))</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset employed_gender.csv from 1979 to 2011 to match the time frame from the earnings_female.csv dataset</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>employed_gender <span class="ot">&lt;-</span> employed_gender <span class="sc">%&gt;%</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1979</span>, year <span class="sc">&lt;=</span> <span class="dv">2011</span>)</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge two datasets by year</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> earnings_female <span class="sc">%&gt;%</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(employed_gender, <span class="at">by =</span> <span class="st">"year"</span>)</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only part-time % columns since the full-time % columns are redundant: full-time % = 100% - part-time. The data do not contain percentage unemployed</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>clean_data <span class="ot">&lt;-</span> combined_data <span class="sc">%&gt;%</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, age_group, percent_female, total_part_time, part_time_female, part_time_male) </span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co"># View clean_data</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(clean_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename 'percent' column to 'percent_female' and 'group' to 'age_group' and 'Year' to 'year' for clarity and consistency in earnings_female.csv</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>earnings_female <span class="ot">&lt;-</span> earnings_female <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">percent_female =</span> percent, <span class="at">age_group =</span> group, <span class="at">year=</span>Year)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Relabel 'Total, 16 years and older' to 'Total' in 'age_group' column. Remove anytime 'years' appears in age_group column and relabel '65 years and older' to '65+'</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>earnings_female <span class="ot">&lt;-</span> earnings_female <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">gsub</span>(<span class="st">"Total, 16 years and older"</span>, <span class="st">"Total"</span>, age_group)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">gsub</span>(<span class="st">" years"</span>, <span class="st">""</span>, age_group)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">gsub</span>(<span class="st">"65 and older"</span>, <span class="st">"65+"</span>, age_group))</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset employed_gender.csv from 1979 to 2011 to match the time frame from the earnings_female.csv dataset</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>employed_gender <span class="ot">&lt;-</span> employed_gender <span class="sc">%&gt;%</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1979</span>, year <span class="sc">&lt;=</span> <span class="dv">2011</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge two datasets by year</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> earnings_female <span class="sc">%&gt;%</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(employed_gender, <span class="at">by =</span> <span class="st">"year"</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only part-time % columns since the full-time % columns are redundant: full-time % = 100% - part-time. The data do not contain percentage unemployed</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>clean_data <span class="ot">&lt;-</span> combined_data <span class="sc">%&gt;%</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, age_group, percent_female, total_part_time, part_time_female, part_time_male) </span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># View clean_data</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(clean_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 6
    year age_group percent_female total_part_time part_time_female part_time_male
@@ -309,19 +294,19 @@ Tip
 </div>
 <p>First, let’s explore the evolution of female percentage of male salary over time, overall and faceted by age group. Claudia Goldin’s work suggests that the gender wage gap has experienced a large convergence toward equality in the last century, but difficulties for women returning to work after having children may result in reduced work in middle age <span class="citation" data-cites="goldin_grand_2014">(<a href="#ref-goldin_grand_2014" role="doc-biblioref">Goldin 2014</a>)</span>. What do the data show?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create line plot of female percentage of male salary over time, faceted by age group</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_data, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> percent_female,<span class="at">color =</span> age_group, <span class="at">group =</span> age_group)) <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Female salary % of male salary from 1979-2011"</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Women 34+ years of age have lower female salary % of male salary than other age groups"</span>,</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Female salary % of male salary"</span>,</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: TidyTuesday 2019 'Women in the Workforce' GitHub repository"</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name =</span> <span class="st">"Age Group"</span>) <span class="sc">+</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>age_group, <span class="at">scales =</span> <span class="st">"free_y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create line plot of female percentage of male salary over time, faceted by age group</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_data, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> percent_female,<span class="at">color =</span> age_group, <span class="at">group =</span> age_group)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Female salary % of male salary from 1979-2011"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Women 34+ years of age have lower female salary % of male salary than other age groups"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Female salary % of male salary"</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: TidyTuesday 2019 'Women in the Workforce' GitHub repository"</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name =</span> <span class="st">"Age Group"</span>) <span class="sc">+</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>age_group, <span class="at">scales =</span> <span class="st">"free_y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Example-Analysis_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -336,41 +321,41 @@ Tip
 </div>
 <p>Now let’s take a look at percentage of part-time working females and males over time.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset to all ages combined</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>clean_data_total <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age_group <span class="sc">==</span> <span class="st">"Total"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset to all ages combined</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>clean_data_total <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age_group <span class="sc">==</span> <span class="st">"Total"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>We cannot stratify results by age groups, since the TidyTuesday data only contain percentage of part-time work females by year.</p>
 </div></div><div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create scatter plot with regression line of percentage of part-time working females over time</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_data_total, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> part_time_female)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> <span class="st">'y~x'</span>) <span class="sc">+</span> </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Percentage of part-time working females from 1979-2011"</span>,</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Percentage of part-time working females only decreased slightly over time"</span>,</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"% part-time working females"</span>,</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: TidyTuesday 2019 'Women in the Workforce' GitHub repository"</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create scatter plot with regression line of percentage of part-time working females over time</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_data_total, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> part_time_female)) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> <span class="st">'y~x'</span>) <span class="sc">+</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Percentage of part-time working females from 1979-2011"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Percentage of part-time working females only decreased slightly over time"</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"% part-time working females"</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: TidyTuesday 2019 'Women in the Workforce' GitHub repository"</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Example-Analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create line plot of percentage of part-time working males over time</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_data_total, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> part_time_male)) <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> <span class="st">'y~x'</span>) <span class="sc">+</span> </span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Percentage part-time working males from 1979-2011"</span>,</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Percentage of part-time working males increased slightly over time"</span>,</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"% part-time working males"</span>,</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: TidyTuesday 2019 'Women in the Workforce' GitHub repository"</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create line plot of percentage of part-time working males over time</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_data_total, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> part_time_male)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> <span class="st">'y~x'</span>) <span class="sc">+</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Percentage part-time working males from 1979-2011"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Percentage of part-time working males increased slightly over time"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"% part-time working males"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: TidyTuesday 2019 'Women in the Workforce' GitHub repository"</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Example-Analysis_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid" width="672"></p>
 </div>
