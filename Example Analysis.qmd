@@ -9,7 +9,7 @@ output:
 
 ## Question(s)
 
-What is the evolution of the gender wage gap over time? How does variation in age and part-time work contribute to the gender wage gap? This exploration is inspired by some of the recent Nobel Prize award-winning work of Claudia Goldin [@goldin_grand_2014] [@goldin_hours_2015].
+What is the evolution of the gender wage gap over time? How does variation in age and part-time work contribute to the gender wage gap? This exploration is inspired by some of the recent Nobel Prize award-winning work of Claudia Goldin, and attempts to replicate some of her findings using a much more limited data set [@goldin_grand_2014] [@goldin_hours_2015].
 
 ## Audience
 
@@ -159,7 +159,7 @@ The regression line shows that percentage of part-time working females fluctuate
 
 ## Summary
 
-In summary, the gender wage gap greatly reduced between 1979 to 2011 from <65% to >80%. But female salary percentage of male salary drops from >90% to <80% after 35 years of age. Percentage of part-time working females only decreased by 1 percentage point and percentage part-time working males only increased by 2 percentage points between 1979 to 2011. Perhaps more nuanced historical data on other factors such as employer bias would benefit this analysis by providing a clearer picture for the reasons behind the reduction of the gender wage gap. 
+In summary, the gender wage gap greatly reduced between 1979 to 2011 from <65% to >80%. Female salary percentage of male salary drops after 35 years of age, and this decreased is still pronounced by 2011. Percentage of part-time working females only decreased by 1 percentage point and percentage part-time working males only increased by 2 percentage points between 1979 to 2011. Perhaps more nuanced historical data on other factors such as employer bias would benefit this currently limited analysis by providing a clearer picture for the reasons behind the reduction of the gender wage gap. 
 
 ## Functions from dplyr, ggplot2
 
