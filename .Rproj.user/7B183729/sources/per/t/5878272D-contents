@@ -1,0 +1,17 @@
+---
+title: "About Me"
+output:
+  quarto::quarto_html:
+---
+
+## Research Interests
+
+My research interests include statistical methods in causal inference, clinical trial and real-world study design, missing data, and longitudinal/correlated data. I am passionate about leveraging my quantitative skills and curiosity to improve public health across disease areas.
+
+## Publications
+
+-   [Real-world comparative effectiveness of acalabrutinib and ibrutinib in patients with chronic lymphocytic leukemia](https://doi.org/10.1182/bloodadvances.2023009739). *Blood Advances, 2023.*
+
+-   [Time and personnel costs associated with adverse event (AE) management among patients with chronic lymphocytic leukemia (CLL)](https://doi.org/10.1080/14737167.2023.2200167). *Expert Review of Pharmacoeconomics & Outcomes Research, 2023.*
+
+-   [Real-world outcomes associated with vonoprazan-based versus proton pump inhibitor-based therapy for Helicobacter pylori infection in Japan](https://doi.org/10.1177/17562848231168714). *Therapeutic Advances in Gastroenterology, 2023.*

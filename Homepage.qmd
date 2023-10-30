@@ -1,0 +1,10 @@
+---
+title: "Helen Guo"
+output:
+  quarto::quarto_html:
+---
+I am Helen Guo, a biostatistics PhD student at the Johns Hopkins Bloomberg School of Public Health. I graduated from Pomona College with my BA in mathematics, and enjoy running in my spare time.
+
+[Click here](About.html) to learn more about my research interests/publications.
+
+![](IMG_0696.jpg){width="400" height="400"}

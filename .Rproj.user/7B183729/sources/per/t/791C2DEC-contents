@@ -1,0 +1,138 @@
+---
+title: "Example Analysis"
+bibliography: citations.bib
+output:
+  quarto::quarto_html:
+---
+
+# Women in the workforce
+
+## Question(s)
+
+What is the evolution of the gender wage gap over time? How does variation in age and part-time work contribute to the gender wage gap? This exploration is inspired by news of the recent Nobel Prize award-winning work of Claudia Goldin.
+
+## Audience
+
+The intended audience members for this example data analysis are my fellow students in BSPH140.777: Statistical Programming Paradigms and Workflows. This work is a quick exploration that I hope will peak the interest of other curious students.
+
+## Data and data dictionaries
+
+I will be using the earnings_female.csv and employed_gender.csv data sets from the 2019 TidyTuesday github repo for 'Women in the Workforce' [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-03-05). I chose not to use jobs_gender.csv since it only contains information from three years. The two data sets, earnings_female.csv and employed_gender.csv, include female percent of male salary by age group and percent of women/men working full-time/part-time from 1979 to 2011. The data originates from the Bureau of Labor and Census Bureau.
+
+See data dictionaries [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-03-05).
+
+## Analysis
+
+Download data:
+```{r}
+#| label: "setup"
+# Load libraries
+library(dplyr)
+library(ggplot2)
+
+# Read in data
+tuesdata <- tidytuesdayR::tt_load("2019-03-05")
+earnings_female <- tuesdata$earnings_female
+employed_gender <- tuesdata$employed_gender
+```
+
+Clean/wrangle data:
+```{r}
+# Rename 'percent' column to 'percent_female' and 'group' to 'age_group' and 'Year' to 'year' for clarity and consistency in earnings_female.csv
+earnings_female <- earnings_female %>%
+  rename(percent_female = percent, age_group = group, year=Year)
+
+# Relabel 'Total, 16 years and older' to 'Total' in 'age_group' column. Remove anytime 'years' appears in age_group column and relabel '65 years and older' to '65+'
+earnings_female <- earnings_female %>%
+  mutate(age_group = gsub("Total, 16 years and older", "Total", age_group)) %>%
+  mutate(age_group = gsub(" years", "", age_group)) %>%
+  mutate(age_group = gsub("65 and older", "65+", age_group))
+
+# Subset employed_gender.csv from 1979 to 2011 to match the time frame from the earnings_female.csv dataset
+employed_gender <- employed_gender %>%
+  filter(year >= 1979, year <= 2011)
+
+# Merge two datasets by year
+combined_data <- earnings_female %>%
+  inner_join(employed_gender, by = "year")
+
+# Keep only part-time % columns since the full-time % columns are redundant: full-time % = 100% - part-time. The data does not contain percentage unemployed
+clean_data <- combined_data %>%
+  select(year, age_group, percent_female, total_part_time, part_time_female, part_time_male) 
+
+# View clean_data
+head(clean_data)
+```
+
+```{r}
+# Create line plot of female percentage of male salary over time, faceted by age group
+ggplot(clean_data, aes(x = year, y = percent_female,color = age_group, group = age_group)) +
+  geom_line() +
+  labs(
+    title = "Female salary % of male salary from 1979-2011",
+    subtitle = "Women 34+ years of age have lower female salary % of male salary than other age groups",
+    x = "Year",
+    y = "Female salary % of male salary",
+    caption = "Source: TidyTuesday 2019 'Women in the Workforce' github repository"
+  ) +
+  scale_color_discrete(name = "Age Group") +
+  theme_minimal() +
+  facet_wrap(~age_group, scales = "free_y")
+```
+
+::: callout-note
+Note that there are five types of callouts, including: `note`, `warning`, `important`, `tip`, and `caution`.
+:::
+
+![](PewResearch.jpg){width="450" height="450"} [@kochhar_enduring_2023]
+
+::: column-margin
+We know from *the first fundamental theorem of calculus* that for $x$ in $[a, b]$:
+
+$$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$
+:::
+
+```{r}
+# Subset to all ages combined
+clean_data_total <- clean_data %>%
+  filter(age_group == "Total")
+
+# Create line plot of percentage of part-time working females over time
+ggplot(clean_data_total, aes(x = year, y = part_time_female)) +
+  geom_point() +
+  geom_smooth(method = "lm", formula = 'y~x') + 
+  labs(
+    title = "Percentage of part-time working females from 1979-2011",
+    subtitle = "Percentage of part-time working females decreased over time",
+    x = "Year",
+    y = "% part-time working females",
+    caption = "Source: TidyTuesday 2019 'Women in the Workforce' github repository"
+  ) +
+  theme_minimal() 
+```
+
+```{r}
+# Create line plot of percentage of part-time working males over time
+ggplot(clean_data_total, aes(x = year, y = part_time_male)) +
+  geom_point() +
+  geom_smooth(method = "lm", formula = 'y~x') + 
+  labs(
+    title = "Percentage part-time working males from 1979-2011",
+    subtitle = "Percentage of part-time working males increased over time",
+    x = "Year",
+    y = "% part-time working males",
+    caption = "Source: TidyTuesday 2019 'Women in the Workforce' github repository"
+  ) +
+  theme_minimal()
+```
+
+## Summary
+
+[@goldin_hours_2015] [@goldin_new_2017] [@kochhar_enduring_2023]
+
+## Functions from dplyr, ggplot2
+
+dplyr functions: 'rename', 'mutate', 'filter', 'inner_join', and 'select' 
+ggplot2 geom_* functions: geom_line, geom_point, geom_smooth
+
+## References

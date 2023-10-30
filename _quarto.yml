@@ -1,0 +1,17 @@
+project:
+  type: website
+  output-dir: _Website
+
+website:
+  title: "Helen Guo's Website"
+  navbar:
+    background: "#f1f1f1"
+    foreground: "#164a58"
+    left:
+      - href: Homepage.qmd
+        text: Home
+      - About.qmd
+      - Example Analysis.qmd
+
+
+
