@@ -3,4 +3,4 @@
 Author: Helen Guo
 
 Helen Guo’s website:
-https://helenguo25.quarto.pub/helen-guos-website/Homepage.html
+https://helenguo25.quarto.pub/helen-guos-website/
